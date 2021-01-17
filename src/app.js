@@ -5,12 +5,15 @@ const path = require("path");
 const hbs = require("hbs");
 const bcrypt = require("bcryptjs");
 require("./db/connect");
+const cookieParser = require("cookie-parser");
 const Register = require("./models/registerModels");
+const auth = require("./middleware/auth");
 const port = process.env.PORT || 8000
 
 const static_path = path.join(__dirname,"../public");
 const template_path = path.join(__dirname,"../templates/views");
 const partial_path = path.join(__dirname,"../templates/partials");
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(static_path));
@@ -21,6 +24,9 @@ hbs.registerPartials(partial_path);
 app.get("/",(req,res)=>{
     res.render("index");
 });
+app.get("/secret",auth,(req,res)=>{
+    res.render("secret");
+})
 app.get("/register",(req,res)=>{
     res.render("register");
 });
@@ -40,8 +46,10 @@ app.post("/register",async (req,res)=>{
                 number: req.body.number
             });
             const token = await data.generatToken();
-            console.log(token);
-            
+            res.cookie("jwt",token,{
+                expires: new Date(Date.now()+30000),
+                httpOnly:true
+            });
             const registered = await data.save();
             res.status(201).send(registered);
         }else{
@@ -62,7 +70,10 @@ app.post("/login", async (req,res)=>{
         const useremail = await Register.findOne({email:email});
         const isMatch = await bcrypt.compare(pass,useremail.password);
         const token = await useremail.generatToken();
-        console.log(token);
+        res.cookie("jwt",token,{
+            expires: new Date(Date.now()+600000),
+            httpOnly:true
+        });
        
         if(isMatch){
             res.status(201).render("index");
@@ -74,6 +85,22 @@ app.post("/login", async (req,res)=>{
         res.status(401).send(error);
     }
 });
+app.get("/logout",auth,async (req,res)=>{
+    try {
+        //single device logout
+        // req.user.tokens = req.user.tokens.filter((curElement)=>{
+        //     return curElement.token !== req.token;
+        // });
+        //all devices logout
+        req.user.tokens = []; 
+        res.clearCookie("jwt");
+        console.log('logout successfully');
+        await req.user.save();
+        res.render("login");
+    } catch (error) {
+        res.status(401).send(error);
+    }
+})
 app.listen(port,()=>{
     console.log(`server running at port ${port}`);
 });
