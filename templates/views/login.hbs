@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{>headerlinks}}
+  </head>
+  <body>
+      {{>navbar}}
+      <div class="container my-5">
+      <div class="row">
+        <div class="col-md-8">
+            <h1>MERN<span class="green"> STACK</span> DEVELOPER</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+      <form action="/login" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+              </div>
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-3">
+              <input type="submit" class="btn btn-primary" name="submit" value="submit"></input>
+            </div>
+          </div>
+        </div>
+        
+      </form>
+      {{>footerlinks}}
+   </body>
+</html>

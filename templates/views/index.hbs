@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{>headerlinks}}
+  </head>
+  <body>
+    <!-- navbar  -->
+    {{>navbar}}
+    <!-- navbar  -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="heading">MERN<span class="green"> STACK</span> DEVELOPER</h1>
+                <i class="fab fa-react"></i>
+            </div>
+            <div class="col-md-6">
+                <!-- coursel  -->
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="./img/node.png" class="d-block w-100" alt="node">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./img/developer.png" class="d-block w-100" alt="developer">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </a>
+                  </div>
+                <!-- coursel  -->
+            </div>
+        </div>
+    </div>
+    {{>footerlinks}}
+  </body>
+</html>

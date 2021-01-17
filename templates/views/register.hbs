@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{>headerlinks}}
+  </head>
+  <body>
+      {{>navbar}}
+      <div class="container my-5">
+      <div class="row">
+        <div class="col-md-8">
+            <h1>MERN<span class="green"> STACK</span> DEVELOPER</h1>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+      <form action="/register" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+           <div class="form-group">
+              <label for="firstname">firstname</label>
+              <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="emailHelp" placeholder="Enter yourfirstname">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="lastname">lastname</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your lastname">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+          </div>
+          <div class="col-md-6 my-4">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="male" value="Male" checked>
+              <label class="form-check-label" for="male">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+              <label class="form-check-label" for="female">
+                Female
+              </label>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="cpassword">Confirm Password</label>
+                <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Enter your confirm password">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="number">Number</label>
+                <input type="text" class="form-control" id="number" name="number" placeholder="Enter your number">
+              </div>
+            </div>
+          </div>
+          <div class="row my-2">
+            <div class="col-md-3">
+              <input type="submit" class="btn btn-primary" name="submit" value="submit"></input>
+            </div>
+          </div>
+        </div>
+        
+      </form>
+      {{>footerlinks}}
+   </body>
+</html>

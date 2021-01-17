@@ -1,0 +1,25 @@
+.heading{
+    color:rgb(3, 3, 51);
+    margin-top: 30%;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.green{
+    color:rgb(5, 117, 5);
+}
+.fa-react{
+    font-size: 13rem;
+    margin-top: 3rem;
+    margin-left: 12rem;
+    animation: react 3s infinite alternate;
+}
+@keyframes react{
+    from{
+        transform: scale(0.8);
+        color:rgb(5, 117, 5) ;
+    }
+    to{
+        transform: scale(1.4);
+        color:rgb(3, 3, 51);
+    }
+}
